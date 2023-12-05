@@ -3,7 +3,7 @@ library(org.Mm.eg.db)
 library(ReactomePA)
 
 # Run GO enrichment analysis using GSEA procedure
-setwd("~/Projects/Carol_ATACseq_Nov2023/diffbind_results/")
+setwd(<WORKING_DIR>)
 
 res <- read.csv("KO_vs_WT_results_annotated.csv", header = T)
 head(res)
