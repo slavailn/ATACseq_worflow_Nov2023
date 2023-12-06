@@ -4,8 +4,10 @@ data("TSS.mouse.GRCm38")
 
 # Annotate DiffBind results using ChIPPeakAnno
 
-setwd("~/Projects/Carol_ATACseq_Nov2023/diffbind_results/")
+setwd(<WORKING_DIR>)
 
+# Load GRanges object that stores the results
+# of DiffBind analysis
 load("KO_vs_WT.GRanges.RData")
 ls()
 dba.object.DB
