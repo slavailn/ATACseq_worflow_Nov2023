@@ -1,25 +1,25 @@
 library(DiffBind)
 
-setwd("~/Projects/Carol_ATACseq_Nov2023/")
+setwd(<WORKING_DIR>)
 
 # Create target file
-SampleID <- c("MBT1KO1", "MBT1KO2", "MBT1KO3", "WT1", "WT2", "WT3")
+SampleID <- c("KO1", "KO2", "KO3", "WT1", "WT2", "WT3")
 Tissue <- rep("NA", 6) 
 Factor <- rep("NA", 6)
 Condition <- rep("NA", 6)
 Treatment <- c("ko", "ko", "ko", "wt", "wt", "wt")
 Replicate <- c(1,2,3,1,2,3)
 
-bamReads <- c("no_mt_bam/MBT1KO1.sorted.no_mt.bam", 
-              "no_mt_bam/MBT1KO2.sorted.no_mt.bam",
-              "no_mt_bam/MBT1KO3.sorted.no_mt.bam", 
+bamReads <- c("no_mt_bam/KO1.sorted.no_mt.bam", 
+              "no_mt_bam/KO2.sorted.no_mt.bam",
+              "no_mt_bam/KO3.sorted.no_mt.bam", 
               "no_mt_bam/WT1.sorted.no_mt.bam",
               "no_mt_bam/WT2.sorted.no_mt.bam", 
               "no_mt_bam/WT3.sorted.no_mt.bam")
 
-Peaks <- c("macs2_peaks/MBT1KO1.sorted.no_mt/MBT1KO1.sorted.no_mt_peaks.xls", 
-           "macs2_peaks/MBT1KO2.sorted.no_mt/MBT1KO2.sorted.no_mt_peaks.xls",
-           "macs2_peaks/MBT1KO3.sorted.no_mt/MBT1KO3.sorted.no_mt_peaks.xls", 
+Peaks <- c("macs2_peaks/KO1.sorted.no_mt/MBT1KO1.sorted.no_mt_peaks.xls", 
+           "macs2_peaks/KO2.sorted.no_mt/MBT1KO2.sorted.no_mt_peaks.xls",
+           "macs2_peaks/KO3.sorted.no_mt/MBT1KO3.sorted.no_mt_peaks.xls", 
            "macs2_peaks/WT1.sorted.no_mt/WT1.sorted.no_mt_peaks.xls",
            "macs2_peaks/WT2.sorted.no_mt/WT2.sorted.no_mt_peaks.xls", 
            "macs2_peaks/WT3.sorted.no_mt/WT3.sorted.no_mt_peaks.xls")
@@ -62,7 +62,7 @@ libsizes <- cbind(LibReads=info$Reads, FRiP=info$FRiP,
 write.csv(libsizes, file="FRiP.csv")
 
 # Plot PCA
-tiff("ATAC-seq_PCA_based_on_read_counts.tiff", width = 800, height = 800)
+tiff("ATACseq_PCA_based_on_read_counts.tiff", width = 800, height = 800)
 dba.plotPCA(atac, DBA_TREATMENT, label=DBA_ID)
 dev.off()
 
